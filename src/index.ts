@@ -1,4 +1,7 @@
 // src/index.ts
 export function pow(n: number, exp: number) {
-  return Math.pow(n, exp)
+  let total = n
+  for (let i = 1; i < exp; i++) {
+    total *= n
+  }
 }
