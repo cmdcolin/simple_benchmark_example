@@ -27,6 +27,10 @@ Checkout the newpow branch and run "yarn bench"
 
 ```
 
-OPTIMIZATION FAILED
+## Analyze cpuprofile
 
-however, these are such small numbers, be very skeptical of 5-10 percent numbers
+```
+node --cpu-prof profile.ts
+npx speedscope *.cpuprofile
+node analyze_cpuprof.ts *.cpuprofile
+```
