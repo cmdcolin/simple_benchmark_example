@@ -1,0 +1,53 @@
+{
+  "name": "simplebench_example",
+  "version": "1.0.0",
+  "description": "an example of using vitest bench",
+  "license": "MIT",
+  "repository": "GMOD/bam-js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./esm/index.js",
+  "exports": "./esm/index.js",
+  "author": {
+    "name": "Colin Diesh",
+    "email": "colin.diesh@gmail.com",
+    "url": "https://github.com/cmdcolin"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "dist",
+    "esm",
+    "src"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "benchonly": "vitest bench",
+    "bench": "./scripts/build-both-branches.sh \"$BRANCH1\" \"$BRANCH2\" && vitest bench",
+    "lint": "eslint --report-unused-disable-directives --max-warnings 0",
+    "clean": "rimraf dist esm",
+    "format": "prettier --write .",
+    "build": "tsc --outDir dist",
+    "prebuild": "yarn clean",
+    "preversion": "yarn lint && yarn test --run && yarn build",
+    "postversion": "git push --follow-tags"
+  },
+  "keywords": [
+    "bionode",
+    "biojs",
+    "bam",
+    "genomics"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@vitest/coverage-v8": "^4.0.14",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.0.4",
+    "vitest": "^4.0.14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
