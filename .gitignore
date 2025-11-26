@@ -6,6 +6,6 @@ dist
 *.swp
 .vscode/
 .eslintcache
-esm
+dist
 *.cpuprofile
-esm_*/
+dist_*/
